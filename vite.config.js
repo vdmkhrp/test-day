@@ -32,7 +32,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         ...getHtmlInputs(),
-        main: resolve(__dirname, "src/js/script.js"),
       },
     },
     outDir: "dist",
