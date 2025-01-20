@@ -3,6 +3,7 @@
 .tabs-section {
   background-color: $gray--500;
   padding-bottom: 142px;
+  padding-inline: 109px;
 
   &__header {
     display: flex;
@@ -19,10 +20,11 @@
     line-height: 1.5;
     text-transform: uppercase;
     color: $gray--900;
-    height: 50px;
+    min-height: 50px;
     width: 100%;
     background-color: $gray--300;
     border: none;
+    padding: 10px 20px;
 
     @media (hover: hover) {
       cursor: pointer;
@@ -59,15 +61,19 @@
     top: 50%;
     translate: 0 -50%;
     color: $gray--900;
+    width: 35px;
+    aspect-ratio: 1;
     background-color: transparent;
     padding: 0;
     border: none;
     transition: color $animation-duration ease;
 
-    &--left {
-      left: -42px;
+    &:disabled {
       opacity: 0.5;
-      pointer-events: none;
+    }
+
+    &--left {
+      right: calc(100% + 32px);
 
       svg {
         rotate: 180deg;
@@ -75,14 +81,16 @@
     }
 
     &--right {
-      right: -42px;
+      left: calc(100% + 32px);
     }
 
     @media (hover: hover) {
-      cursor: pointer;
+      &:not(:disabled) {
+        cursor: pointer;
 
-      &:hover {
-        color: $accent;
+        &:hover {
+          color: $accent;
+        }
       }
     }
   }

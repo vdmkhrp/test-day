@@ -1,21 +1,87 @@
 @use "../base/variables" as *;
 
 .header {
+  display: grid;
+  grid-template-columns: 1fr minmax(100px, 1700px) 1fr;
+  grid-template-rows: min-content 1fr;
+  background-color: $gray--400;
+  height: 148px;
+
+  &::before {
+    content: "";
+    grid-column: 1 / -1;
+    grid-row: 2 / -1;
+    background-color: $light;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-template-columns: 295px 1fr;
+    grid-column: 2 / -2;
+    grid-row: 1 / -1;
+    padding-inline: 10px;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      background-image: url("/src/img/new-flag.svg");
+      background-repeat: no-repeat;
+      background-size: 57px auto;
+      background-position: top 64px left 119px;
+    }
+
+    &::after {
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 120'%3E%3Cpath d='M-2 0h1926v35H292.519c-26.985 0-51.072 17.078-60.088 42.512-20.051 56.568-100.223 56.722-120.037.07C103.474 52.08 79.407 35 52.388 35H8C2.477 35-2 30.523-2 25V0Z' fill='%23F7F7F7'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: auto 120px;
+      background-position: left -25px top;
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+      z-index: 3;
+    }
+  }
+
+  &__logo {
+    grid-column: 1 / span 1;
+    grid-row: 1 / -1;
+    place-items: center;
+    z-index: 10;
+  }
+
+  &__logo-link {
+    display: block;
+    width: 111px;
+    border-bottom-left-radius: 56px;
+    border-bottom-right-radius: 56px;
+    background-color: $light;
+    padding: 23px 10px 10px;
+  }
+
+  &__top,
+  &__bottom {
+    grid-column: 2 / -1;
+    z-index: 4;
+  }
+
   &__top {
+    grid-row: 1 / 2;
+  }
+
+  &__bottom {
+    grid-row: 2 / -1;
     display: flex;
     align-items: center;
-    justify-content: end;
-    min-height: 35px;
-    padding-inline: 120px;
-    background-color: $gray--400;
+    justify-content: space-between;
+    column-gap: 50px;
   }
 
   &__page-nav {
-    width: fit-content;
     display: flex;
     align-items: center;
+    justify-content: end;
     column-gap: 1px;
-    flex-wrap: wrap;
   }
 
   &__page-link {
@@ -53,15 +119,6 @@
         pointer-events: none;
       }
     }
-  }
-
-  &__bottom {
-    background-color: $light;
-    padding: 32px 120px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    column-gap: 15px;
   }
 
   &__nav-product {

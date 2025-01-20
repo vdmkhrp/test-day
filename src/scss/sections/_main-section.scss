@@ -35,10 +35,8 @@
   }
 
   &__container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    column-gap: 132px;
-    row-gap: 45px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7.8571%;
   }
 }
