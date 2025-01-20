@@ -1,0 +1,22 @@
+//base
+@use "./base/custom-reset";
+@use "./base/variables" as *;
+@use "./base/general";
+
+//components
+@use "./components/icon";
+@use "./components/search-form";
+@use "./components/product-card";
+@use "./components/rating";
+@use "./components/recipes-card";
+
+//layouts
+@use "./layouts/header";
+
+//sections
+@use "./sections/hero";
+@use "./sections/tabs-section";
+@use "./sections/main-section";
+
+//utilities
+@use "./utilities/helper";

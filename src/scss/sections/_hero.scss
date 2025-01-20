@@ -1,0 +1,165 @@
+@use "../base/variables" as *;
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 42.0833% 5.2604% 1fr;
+  padding-bottom: 35px;
+
+  &__left {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  &__picture {
+    height: 590px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__right {
+    grid-column-start: 2;
+    grid-column-end: -1;
+    grid-row: 1;
+    min-height: 720px;
+    background-color: $gray--400;
+    background-image: url("/src/img/sugar.png");
+    background-repeat: no-repeat;
+    background-size: auto 84.4507%;
+    background-position: right -12.2302% center;
+  }
+
+  &__content {
+    max-width: 440px;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 54px;
+    row-gap: 15px;
+    grid-column-start: 3;
+    grid-column-end: -1;
+    grid-row: 1;
+    z-index: 20;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 1;
+    color: $gray--900;
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 12px;
+    background-color: $accent;
+    font-weight: 700;
+    color: $light;
+    text-transform: uppercase;
+    border: 2px solid transparent;
+    min-width: 252px;
+    height: 50px;
+    border-radius: 5px;
+    padding: 13px 26px;
+    transition-property: background-color, border-color, color;
+    transition-duration: $animation-duration;
+    transition-timing-function: ease;
+
+    @media (hover: hover) {
+      cursor: pointer;
+
+      &:hover {
+        background-color: transparent;
+        border-color: $accent;
+        color: $accent;
+      }
+    }
+  }
+
+  &__btn-questions {
+    $border-radius: 5px;
+    rotate: -90deg;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    translate: 0 -50%;
+    transform-origin: top right;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 4px 33px;
+    color: $light;
+    border: 2px solid transparent;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    background-color: $accent;
+    z-index: 10;
+    transition-property: background-color, border-color, color;
+    transition-duration: $animation-duration;
+    transition-timing-function: ease;
+    white-space: nowrap;
+
+    @media (hover: hover) {
+      cursor: pointer;
+
+      &:hover {
+        background-color: $light;
+        border-color: $accent;
+        color: $accent;
+      }
+    }
+
+    svg {
+      rotate: 90deg;
+    }
+  }
+
+  &__pagination {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 11px;
+    bottom: 78px;
+    left: 50%;
+  }
+
+  &__pagination-btn {
+    border-radius: 50%;
+    width: 11px;
+    aspect-ratio: 1;
+    border: 1px solid $accent;
+    background-color: transparent;
+    transition: background-color $animation-duration ease;
+
+    &--active {
+      background-color: $accent;
+      pointer-events: none;
+    }
+
+    @media (hover: hover) {
+      cursor: pointer;
+
+      &:hover {
+        background-color: $accent;
+      }
+    }
+  }
+}

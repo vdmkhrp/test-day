@@ -1,0 +1,89 @@
+@use "../base/variables" as *;
+
+.tabs-section {
+  background-color: $gray--500;
+  padding-bottom: 142px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 72px;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 4px;
+    font-size: 18px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: $gray--900;
+    height: 50px;
+    width: 100%;
+    background-color: $gray--300;
+    border: none;
+
+    @media (hover: hover) {
+      cursor: pointer;
+    }
+
+    &:first-child {
+      border-bottom-right-radius: 6px;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: 6px;
+    }
+
+    &--active {
+      background-color: transparent;
+      pointer-events: none;
+      font-weight: 700;
+    }
+
+    img {
+      width: 20px;
+      aspect-ratio: 1;
+    }
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    column-gap: 45px;
+  }
+
+  &__slide-btn {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    color: $gray--900;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    transition: color $animation-duration ease;
+
+    &--left {
+      left: -42px;
+      opacity: 0.5;
+      pointer-events: none;
+
+      svg {
+        rotate: 180deg;
+      }
+    }
+
+    &--right {
+      right: -42px;
+    }
+
+    @media (hover: hover) {
+      cursor: pointer;
+
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+}

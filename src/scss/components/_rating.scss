@@ -1,0 +1,24 @@
+@use "../base/variables" as *;
+
+.rating {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+
+  span {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #000;
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: $accent;
+
+    @media (hover: hover) {
+      cursor: pointer;
+    }
+  }
+}

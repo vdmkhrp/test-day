@@ -1,0 +1,121 @@
+@use "../base/variables" as *;
+
+.header {
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    min-height: 35px;
+    padding-inline: 120px;
+    background-color: $gray--400;
+  }
+
+  &__page-nav {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    column-gap: 1px;
+    flex-wrap: wrap;
+  }
+
+  &__page-link {
+    min-width: 164px;
+    min-height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    line-height: 1.5;
+    background-color: $gray--700;
+    text-transform: uppercase;
+    color: $light;
+    transition: background-color $animation-duration ease;
+    white-space: nowrap;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $accent;
+      }
+    }
+
+    &:first-child {
+      border-bottom-left-radius: 5px;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 5px;
+    }
+
+    &--active {
+      background-color: $accent;
+
+      @media (hover: hover) {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__bottom {
+    background-color: $light;
+    padding: 32px 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 15px;
+  }
+
+  &__nav-product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 43px;
+    row-gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  &__nav-product-link {
+    color: $gray--900;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.5;
+    transition: color $animation-duration ease;
+    white-space: nowrap;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    column-gap: 28px;
+  }
+
+  &__btn {
+    color: $gray--800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 9px;
+    border: none;
+    background-color: transparent;
+    line-height: 1.5;
+    transition: color $animation-duration ease;
+    white-space: nowrap;
+
+    @media (hover: hover) {
+      cursor: pointer;
+
+      &:hover {
+        color: $accent;
+      }
+    }
+
+    &::last-child {
+      padding-left: 6px;
+    }
+  }
+}
